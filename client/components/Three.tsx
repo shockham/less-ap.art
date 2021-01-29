@@ -25,18 +25,17 @@ const Box: React.FC<MeshProps> = (props) => {
       onPointerOut={(event) => setHover(false)}
     >
       <boxBufferGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={hovered ? "hotpink" : "orange"} />
+      <meshStandardMaterial color={hovered ? "lightpink" : "silver"} />
     </mesh>
   );
 };
 
-export default function TestCanvas() {
+export default function TestCanvas(props) {
   return (
-    <Canvas>
+    <Canvas style={{height:1000,width:1000}}>
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
-      <Box position={[-1.2, 0, 0]} />
-      <Box position={[1.2, 0, 0]} />
+      {[...Array(props.count).keys()].map((n) => <Box key={n.toString()} position={[n, 0, 0]} />)}
     </Canvas>
   );
 }

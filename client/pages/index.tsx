@@ -4,15 +4,12 @@ import Logo from "../components/logo.tsx";
 import Canvas from "../components/Three.tsx";
 
 export default function Home() {
-  const [count, setCount] = useState(0);
-  const version = useDeno(() => {
-    return Deno.version;
-  });
+  const [count, setCount] = useState(5);
 
   return (
     <div className="page">
       <Import from="../style/index.less" />
-      <Canvas />
+      <Canvas count={count}/>
       <p className="counter">
         <span>Counter:</span>
         <strong>{count}</strong>

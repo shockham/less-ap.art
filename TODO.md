@@ -1,0 +1,7 @@
+- Canvas takes in number prop
+- Hook up count to determine how many meshes
+- procedural positioning of meshes
+- initial ws server
+- client count changing based on ws return
+- ws return increases on visitors
+- deploy
