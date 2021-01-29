@@ -38,7 +38,7 @@ export default function TestCanvas(props) {
       {[...Array(props.count).keys()].map((n) => {
         return <Box
           key={n.toString()}
-          position={[Math.sin(n), Math.cos(n), Math.sin(n) * Math.cos(n)]}
+          position={[Math.sin(n) * 2, Math.cos(n), Math.sin(n) * Math.cos(n) * 2]}
         />;
       })}
     </Canvas>
