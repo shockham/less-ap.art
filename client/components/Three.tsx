@@ -32,11 +32,14 @@ const Box: React.FC<MeshProps> = (props) => {
 
 export default function TestCanvas(props) {
   return (
-    <Canvas style={{height:1000,width:1000}}>
+    <Canvas style={{ height: 1000, width: 1000 }}>
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
       {[...Array(props.count).keys()].map((n) => {
-        return <Box key={n.toString()} position={[Math.sin(n), Math.cos(n), Math.sin(n) * Math.cos(n)]} />
+        return <Box
+          key={n.toString()}
+          position={[Math.sin(n), Math.cos(n), Math.sin(n) * Math.cos(n)]}
+        />;
       })}
     </Canvas>
   );

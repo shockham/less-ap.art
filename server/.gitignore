@@ -1,0 +1,6 @@
+/target
+**/*.rs.bk
+TODO.md
+ftbl.toml
+deploy.sh
+Makefile
