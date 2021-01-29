@@ -35,7 +35,9 @@ export default function TestCanvas(props) {
     <Canvas style={{height:1000,width:1000}}>
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
-      {[...Array(props.count).keys()].map((n) => <Box key={n.toString()} position={[n, 0, 0]} />)}
+      {[...Array(props.count).keys()].map((n) => {
+        return <Box key={n.toString()} position={[Math.sin(n), Math.cos(n), Math.sin(n) * Math.cos(n)]} />
+      })}
     </Canvas>
   );
 }
