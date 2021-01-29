@@ -22,7 +22,7 @@ export default function Home() {
 
     ws.current.onmessage = (e) => {
       const message = JSON.parse(e.data);
-      console.log("e", message);
+      setCount(message);
     };
   }, []);
 
