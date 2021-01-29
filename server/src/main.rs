@@ -1,9 +1,9 @@
 use std::sync::atomic::{AtomicUsize, Ordering};
 
-use futures::{FutureExt, StreamExt, stream};
+use futures::{FutureExt, StreamExt, SinkExt, stream};
 use warp::Filter;
 use warp::ws::{Message, WebSocket};
-//use futures::executor::block_on;
+use futures::executor::block_on;
 
 static COUNT: AtomicUsize = AtomicUsize::new(1);
 
@@ -13,13 +13,18 @@ async fn handle_client(websocket: WebSocket) {
     let count = COUNT.fetch_add(1, Ordering::Relaxed);
     println!("{}", count);
     // Just echo all messages back...
-    let (tx, _rx) = websocket.split();
+    let (mut tx, rx) = websocket.split();
 
-    let repeater = stream::repeat_with(|| {
-        Ok(Message::text(format!("{:?}", COUNT)))
+    // send the initial state
+    let initer = tx.send(Message::text(format!("{:?}", COUNT)));
+    let _ = block_on(initer);
+
+    let _repeater = stream::repeat_with(|| {
+        Message::text(format!("{:?}", COUNT))
     });
 
-    repeater.forward(tx).map(|result| {
+    // this just echos
+    let _ = rx.forward(tx).map(|result| {
         if let Err(e) = result {
             // TODO: handle connection closing properly
             if format!("{:?}", e) == "ConnectionClosed".to_string() {
