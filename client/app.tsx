@@ -8,7 +8,7 @@ export default function App(
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Hello World - Aleph.js</title>
+        <title>less-ap.art</title>
       </Head>
       <Page {...pageProps} />
     </>
