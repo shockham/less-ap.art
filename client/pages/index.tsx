@@ -8,7 +8,7 @@ export default function Home() {
   const ws = useRef(null);
 
   useEffect(() => {
-    ws.current = new WebSocket("ws://localhost:3030/echo");
+    ws.current = new WebSocket("wss://ws.less-ap.art/echo");
     ws.current.onopen = () => console.log("ws opened");
     ws.current.onclose = () => console.log("ws closed");
 
