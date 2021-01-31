@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "https://esm.sh/react";
 import { Canvas, MeshProps, useFrame } from "https://esm.sh/react-three-fiber";
+import { EffectComposer, DepthOfField, Bloom, Noise, Vignette } from 'https://esm.sh/@react-three/postprocessing'
 import type { Mesh } from "https://esm.sh/three";
 
 const Box: React.FC<MeshProps> = (props) => {
