@@ -30,12 +30,6 @@ export default function Home() {
     <div className="page">
       <Import from="../style/index.less" />
       <Canvas count={count} />
-      <p className="counter">
-        <span>Counter:</span>
-        <strong>{count}</strong>
-        <button onClick={() => setCount((n) => n - 1)}>-</button>
-        <button onClick={() => setCount((n) => n + 1)}>+</button>
-      </p>
     </div>
   );
 }
