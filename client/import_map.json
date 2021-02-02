@@ -1,3 +1,5 @@
 {
-    "imports": {}
+    "imports": {
+        "https://esm.sh/": "https://esm.sh/[react,three,react-three-fiber,@react-three/postprocessing,react-dom,react-refresh@0.8.3/runtime,react-dom/server]/"
+    }
 }

@@ -1,5 +1,5 @@
 import { Import, useDeno } from "https://deno.land/x/aleph/mod.ts";
-import React, { useState, useEffect, useRef } from "https://esm.sh/react";
+import React, { useEffect, useRef, useState } from "https://esm.sh/react";
 import Logo from "../components/logo.tsx";
 import Canvas from "../components/Three.tsx";
 
